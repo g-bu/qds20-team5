@@ -1,0 +1,45 @@
+extends layout
+
+block content
+
+    h1 QDS Team 5
+    
+    h2 Welcome, Administrator
+
+    br
+
+    button(onclick="toggle_new_task()").btn-secondary.standard_button Add New Event
+    form#new_task_div.standard_form(method="POST" action='/events/user_add_event')
+        h2 Add a New Event
+        br
+        input(type='text' placeholder="event name" name="new_event_name" required="").standard_input.new_task_input
+        br
+        input(type='text' placeholder="event address" name="new_event_address" required="").standard_input.new_task_input
+        br
+        h5 Event Start Date and Time
+        .parent
+            input.child(type='date' placeholder="yyyy-mm-dd" value="mm/dd//yyyy" name='new_event_start_date' required="").standard_input
+            input.child(type='time' placeholder="00:00:AM" value='00:00' name="new_event_start_time" required="").standard_input
+        br
+        h5 Event End Date and Time
+        .parent
+            input.child(type='date' placeholder="yyyy-mm-dd" value="mm/dd//yyyy" name='new_event_end_date' required="").standard_input
+            input.child(type='time' placeholder="00:00:AM" value='00:00' name="new_event_end_time" required="").standard_input
+        br
+        input(type="submit" value="Add Event").btn-secondary.standard_button
+
+    br
+
+    //- div(id="events_div")
+    //- each event in eventList
+    //-     div(id=entry.entryId).task_div
+    //-         h2 #{ entry.entryName }
+    //-         h3 00:00:00:00
+    //-         h5 #{ entry.strippedDate }
+    //-         h3.hidden #{ entry.entryDate }
+    //-         button(onclick="delete_entry(this)").standard_button.btn-secondary Delete
+    //-         p.hidden #{ entry.entryId }
+
+    include js_helper.pug
+
+    include footer.pug

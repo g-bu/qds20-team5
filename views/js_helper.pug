@@ -2,4 +2,12 @@ script.
     function dummy_function() {
     }
 
-
+script.
+    function toggle_new_task() {
+    let new_task_div = document.getElementById('new_task_div')
+    if (new_task_div.style.display != "inline") {
+    new_task_div.style.display = "inline";
+    } else {
+    new_task_div.style.display = "none";
+    }
+    }

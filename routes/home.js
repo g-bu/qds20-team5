@@ -13,9 +13,13 @@ router.get('/', function (req, res) {
     }
     else {
         console.log('user logged in.  forwarding to index');
-        QRCode.toDataURL(req.session.userEmail, function (err, url) {
-            res.render('index', { 'emailData': req.session.userEmail, 'messageData': 'Welcome to QDS Team 5', 'qr': url } );
-        })
+        if (req.session.userRole.localeCompare('admin') == 0) {
+            res.render('admin', { 'emailData': req.session.userEmail });
+        } else {
+            QRCode.toDataURL(req.session.userEmail, function (err, url) {
+                res.render('index', { 'emailData': req.session.userEmail, 'messageData': 'Welcome to QDS Team 5', 'qr': url });
+            })
+        }
     }
 })
 

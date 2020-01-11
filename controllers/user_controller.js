@@ -10,6 +10,8 @@ exports.login_user = (req, res) => {
         if (userPw.localeCompare(password) != 0) console.log('invalid password');
         else {
             req.session.userEmail = model_response[0].userEmail;
+            req.session.userRole = model_response[0].userRole;
+            console.log('session user role: ' + req.session.userRole)
             res.redirect('/');
         }
     })
