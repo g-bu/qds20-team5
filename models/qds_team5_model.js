@@ -33,7 +33,12 @@ function signup(data) {
     let user = {
         userId: null,
         userEmail: data.email_signup,
-        userPassword: data.password_01
+        userPassword: data.password_01,
+        userFirstName: data.first_name_signup,
+        userLastName: data.last_name_signup,
+        userAddress: data.address_signup,
+        userGender: data.gender_signup,
+        userRole: "user"
     };
     let sql_statement = 'INSERT INTO users SET ?';
     let sql_params = [user];
@@ -43,8 +48,13 @@ function signup(data) {
     });
 }
 
+function userAddEvent(data) {
+    console.log('user events fired from db model')
+}
+
 module.exports = {
     login_user: login,
     signup_user: signup,
     check_email: check,
+    user_add_event: userAddEvent
 }

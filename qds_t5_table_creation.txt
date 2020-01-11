@@ -1,0 +1,95 @@
+CREATE TABLE `6pDXtoGkRl`.`users` ( 
+`userId` INT NOT NULL AUTO_INCREMENT , 
+`userEmail` VARCHAR(64) NOT NULL , 
+`userPassword` VARCHAR(32) NOT NULL , 
+`userFirstName` VARCHAR(64) NOT NULL ,
+`userLastName` VARCHAR(64) NOT NULL ,
+`userAddress` VARCHAR(64) NOT NULL ,
+`userGender` VARCHAR(32) NOT NULL ,
+`userEthnicity` VARCHAR(32) ,
+`userRole` VARCHAR(64) NOT NULL ,
+PRIMARY KEY (`userId`)
+) ENGINE = InnoDB;
+
+
+CREATE TABLE `6pDXtoGkRl`.`events` ( 
+`eventId` INT NOT NULL AUTO_INCREMENT , 
+`eventName` VARCHAR(128) NOT NULL , 
+`eventAddress` VARCHAR(128) NOT NULL , 
+`eventStartDateTime` DATETIME NOT NULL , 
+`eventEndDateTime` DATETIME NOT NULL , 
+PRIMARY KEY (`eventId`)
+) ENGINE = InnoDB;
+
+CREATE TABLE `6pDXtoGkRl`.`questions` ( 
+`questionId` INT NOT NULL AUTO_INCREMENT , 
+`eventId` INT NOT NULL , 
+`question1` VARCHAR(256) NOT NULL , 
+`question2` VARCHAR(256) NOT NULL , 
+`question3` VARCHAR(256) NOT NULL , 
+`question4` VARCHAR(256) NOT NULL , 
+`question5` VARCHAR(256) NOT NULL , 
+PRIMARY KEY (questionId, eventId) ,
+FOREIGN KEY (eventId) REFERENCES events(eventId)
+) ENGINE = InnoDB;
+
+CREATE TABLE `6pDXtoGkRl`.`answers` ( 
+`userId` INT NOT NULL ,
+`questionId` INT NOT NULL , 
+`eventId` INT NOT NULL ,
+`answer1` VARCHAR(128) NOT NULL , 
+`answer2` VARCHAR(128) NOT NULL , 
+`answer3` VARCHAR(128) NOT NULL , 
+`answer4` VARCHAR(128) NOT NULL , 
+`answer5` VARCHAR(128) NOT NULL , 
+PRIMARY KEY (userId, questionId, eventId) ,
+FOREIGN KEY (userId) REFERENCES users(userId) ,
+FOREIGN KEY (eventId) REFERENCES events(eventId) ,
+FOREIGN KEY (questionId) REFERENCES questions(questionId)
+) ENGINE = InnoDB;
+
+CREATE TABLE `6pDXtoGkRl`.`subEvents` ( 
+`subEventId` INT NOT NULL AUTO_INCREMENT ,
+`eventId` INT NOT NULL ,
+`subEventName` VARCHAR(128) NOT NULL , 
+`subEventLocation` VARCHAR(128) NOT NULL , 
+`subEventStartDateTime` DATETIME NOT NULL , 
+`subEventEndDateTime` DATETIME NOT NULL ,
+`subEventRating1` VARCHAR(128) NOT NULL , 
+`subEventRating2` VARCHAR(128) NOT NULL , 
+`subEventRating3` VARCHAR(128) NOT NULL , 
+`subEventRating4` VARCHAR(128) NOT NULL , 
+`subEventRating5` VARCHAR(128) NOT NULL , 
+PRIMARY KEY (subEventId) ,
+FOREIGN KEY (eventId) REFERENCES events(eventId)
+) ENGINE = InnoDB;
+
+CREATE TABLE `6pDXtoGkRl`.`visit` ( 
+`eventId` INT NOT NULL ,
+`subEventId` INT NOT NULL ,
+`userId` INT NOT NULL ,
+`answer1` VARCHAR(128) NOT NULL , 
+`answer2` VARCHAR(128) NOT NULL , 
+`answer3` VARCHAR(128) NOT NULL , 
+`answer4` VARCHAR(128) NOT NULL , 
+`answer5` VARCHAR(128) NOT NULL , 
+PRIMARY KEY (eventId, subEventId, userId) ,
+FOREIGN KEY (eventId) REFERENCES events(eventId) ,
+FOREIGN KEY (subEventId) REFERENCES subEvents(subEventId) ,
+FOREIGN KEY (userId) REFERENCES users(userId)
+) ENGINE = InnoDB;
+
+CREATE TABLE `6pDXtoGkRl`.`ratings` ( 
+`userId` INT NOT NULL ,
+`eventId` INT NOT NULL ,
+`subEventId` INT NOT NULL , 
+`rating1` INT , 
+`rating2` INT , 
+`rating3` INT , 
+`rating4` INT , 
+`rating5` INT , 
+PRIMARY KEY (userId, eventId, subEventId) ,
+FOREIGN KEY (userId) REFERENCES users(userId) ,
+FOREIGN KEY (eventId) REFERENCES events(eventId) ,
+FOREIGN KEY (subEventId) REFERENCES subEvents(subEventId)
+) ENGINE = InnoDB;
