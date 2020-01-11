@@ -48,8 +48,23 @@ function signup(data) {
     });
 }
 
-function userAddEvent(data) {
+function userAddEvent(data, callback) {
     console.log('user events fired from db model')
+    let event = {
+        eventId: null,
+        eventName: data.new_event_name,
+        eventAddress: data.new_event_address,
+        eventStartDateTime: data.new_event_start_date + " " + data.new_event_start_time,
+        eventEndDateTime: data.new_event_end_date + " " + data.new_event_end_time
+    };
+    console.log(event)
+    let sql_statement = 'INSERT INTO events SET ?';
+    let sql_params = [event];
+    statement = db.format(sql_statement, sql_params);
+    db.query(statement, function (err) {
+        if (err) throw err;
+    });
+    callback();
 }
 
 module.exports = {
