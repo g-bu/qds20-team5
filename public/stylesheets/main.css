@@ -1,0 +1,113 @@
+@font-face {
+    font-family: "digital-clock-font";
+    src: url('../fonts/alarm-clock.ttf')
+}
+
+body {
+    background-color: black
+}
+p {
+    color: red;
+    text-align: center;
+}
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 600%;
+}
+h2 {
+    color: lightseagreen;
+    text-align: center;
+    font-size: 325%;
+}
+h3 {
+    color: red;
+    text-align: center;
+    font-size: 600%;
+    font-family: 'digital-clock-font';
+    margin-bottom: 0pt;
+}
+
+h4 {
+    color: white
+}
+
+h5 {
+    color: darkgray;
+    text-align: center;
+    margin-bottom: 15pt;
+    margin-top: 0pt;
+}
+
+.standard_input {
+    display: block;
+    margin: auto;
+}
+
+.standard_button {
+    display: block;
+    margin: auto;
+}
+
+.standard_form {
+    display: block;
+    margin: auto;
+}
+
+.login_form {
+    display: block;
+    margin: 5%;
+}
+
+.user_message {
+    text-align: center;
+}
+
+label {
+    margin-bottom: 50px;
+    display: block;
+}
+
+.new_task_input {
+    width: 180pt;
+}
+
+.hidden {
+    display: none;
+}
+
+.headerForm {
+    text-align: center;
+
+}
+
+#headerDiv {
+    color: white;
+    margin-bottom: 7pt;
+}
+
+#new_task_div {
+    display: none;
+    margin: 5%;
+}
+
+#dates_div {
+    margin: 5%;
+    margin-bottom: 0%;
+}
+
+.task_div {
+    margin-bottom: 5%;
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .child {
+    display: inline-block;
+    padding: 0%;
+    margin: 0%;
+  }

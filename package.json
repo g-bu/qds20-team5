@@ -1,0 +1,14 @@
+{
+  "name": "node-sample",
+  "description": "Our sample Node to Heroku app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "pug": "2.0.4",
+    "cookie-session": "1.3.3",
+    "mysql2": "2.0.2"
+  }
+}
