@@ -5,7 +5,9 @@
 
 body {
     background-color: #f8f9fc;
+    height: auto;
 }
+
 p {
     color: red;
     text-align: center;
@@ -18,7 +20,7 @@ h1 {
 h2 {
     color: #20c9a6;
     text-align: center;
-    font-size: 325%;
+    font-size: 300%;
 }
 h3 {
     color: red;
@@ -33,7 +35,7 @@ h4 {
 }
 
 h5 {
-    color: darkgray;
+    color:#20c9a6;
     text-align: center;
     margin-bottom: 15pt;
     margin-top: 0pt;
@@ -79,7 +81,6 @@ label {
 
 .headerForm {
     text-align: center;
-
 }
 
 #headerDiv {
@@ -122,8 +123,6 @@ label {
     width: 100%;
     height: 100px;
     background-color: #4e73df;
-    position: fixed;
-    top: 0;
 }
 .bottom_bar {
     width: 100%;
@@ -131,4 +130,17 @@ label {
     background-color: #4e73df;
     position: fixed;
     bottom: 0;
+}
+.event_title {
+    margin-bottom: 5%;
+    font-size: 380%;
+    color: #4e73df;
+    border-bottom: dotted #4e73df;
+}
+#events_div {
+    margin: 3% 10% 3% 10%;
+    width: 80%;
+    height: 1100px;
+    border: solid #4e73df 2px;
+    overflow: scroll;
 }

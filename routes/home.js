@@ -10,7 +10,7 @@ router.get('/', function (req, res) {
     if (typeof req.session.userEmail === 'undefined'
         || req.session.userEmail == '' || req.session.userEmail == {}) {
         console.log('user not logged in, forwarding to signup/login');
-        res.render('login', { 'messageData': 'Please sign up or log in to get started!' });
+        res.render('login', { 'messageData': 'Please Login or Sign Up to get started!' });
     }
     else {
         console.log('user logged in.  forwarding to index');
