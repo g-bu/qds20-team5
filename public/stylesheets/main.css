@@ -16,7 +16,7 @@ h1 {
     font-size: 500%;
 }
 h2 {
-    color: lightseagreen;
+    color: #20c9a6;
     text-align: center;
     font-size: 325%;
 }
@@ -29,7 +29,7 @@ h3 {
 }
 
 h4 {
-    color: white
+    color: #20c9a6
 }
 
 h5 {
@@ -47,6 +47,7 @@ h5 {
 .standard_button {
     display: block;
     margin: auto;
+    color: #20c9a6;
 }
 
 .standard_form {
@@ -82,7 +83,7 @@ label {
 }
 
 #headerDiv {
-    color: white;
+    color: #20c9a6;
     margin-bottom: 7pt;
 }
 
