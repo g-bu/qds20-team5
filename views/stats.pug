@@ -2,10 +2,12 @@ extends layout
 
 block content
 
+    h5 #{ q1 } #{ r1 }
+    h5 #{ q2 } #{ r2 }
+    h5 #{ q3 } #{ r3 }
+    h5 #{ q4 } #{ r4 }
+    h5 #{ q5 } #{ r5 }
 
-    form(method="POST" action='/stats/get_stats').login_form
-        input(type="submit" value="get stats")
-        p.hidden stuff
 
 
     include js_helper.pug

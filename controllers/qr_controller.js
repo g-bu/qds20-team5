@@ -24,3 +24,10 @@ exports.sub_event_scan = (req, res, callback) => {
     })
     callback()
 };
+
+exports.get_sub_event_stats = (callback) => {
+    console.log('get sub event stats touched from events controller');
+    model.get_stats(function(model_response) {
+        callback(model_response)
+    })
+};
