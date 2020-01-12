@@ -90,33 +90,33 @@ function deleteOne(data, callback) {
 }
 
 function getSubs(data, callback) {
-    // console.log(data);
-    // let sql_statement = 'SELECT * FROM subEvents';
-    // statement = db.format(sql_statement);
-    // db.query(statement, (err, result) => {
-    //     if (err) throw err;
-    //     else callback(result);
-    // });
+    console.log(data);
+    let sql_statement = 'SELECT * FROM subEvents';
+    statement = db.format(sql_statement);
+    db.query(statement, (err, result) => {
+        if (err) throw err;
+        else callback(result);
+    });
 }
 
 function addSub(data, callback) {
     console.log('user add sub event fired from db model')
-    // let event = {
-    //     eventId: null,
-    //     eventName: data.new_event_name,
-    //     eventAddress: data.new_event_address,
-    //     eventStartDateTime: data.new_event_start_date + " " + data.new_event_start_time,
-    //     eventEndDateTime: data.new_event_end_date + " " + data.new_event_end_time,
-    //     eventDescription: data.new_event_description
-    // };
-    // console.log(event)
-    // let sql_statement = 'INSERT INTO events SET ?';
-    // let sql_params = [event];
-    // statement = db.format(sql_statement, sql_params);
-    // db.query(statement, function (err) {
-    //     if (err) throw err;
-    // });
-    // callback();
+    let subEvent = {
+        subEventId: null,
+        subEventName: data.new_event_name,
+        subEventLocation: data.new_event_location,
+        subEventStartDateTime: data.new_event_start_date + " " + data.new_event_start_time,
+        subEventEndDateTime: data.new_event_end_date + " " + data.new_event_end_time,
+        subEventDescription: data.new_event_description
+    };
+    console.log(subEvent)
+    let sql_statement = 'INSERT INTO subEvents SET ?';
+    let sql_params = [subEvent];
+    statement = db.format(sql_statement, sql_params);
+    db.query(statement, function (err) {
+        if (err) throw err;
+    });
+    callback();
 }
 
 function getStats(callback) {

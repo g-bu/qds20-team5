@@ -19,10 +19,10 @@ exports.get_user_events = (callback) => {
 exports.user_add_sub_event = (req, callback) => {
     console.log('user sub event creation touched from events controller');
     console.log(req)
-    model.user_add__sub_event(req, function() {
+    model.user_add_sub_event(req, function() {
         console.log('db return joy')
     })
-    callback()
+    // callback()
 };
 
 exports.delete_event = (req, res) => {
@@ -36,7 +36,7 @@ exports.delete_event = (req, res) => {
 
 exports.get_sub_events = (data, callback) => {
     console.log('go to sub events touched from events controller: ' + data);
-    // model.get_sub_events(data, function(model_response) {
-    //     callback(model_response)
-    // })
+    model.get_sub_events(data, function(model_response) {
+        callback(model_response)
+    })
 };
