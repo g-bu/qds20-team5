@@ -4,21 +4,23 @@
 }
 
 body {
-    background-color: black
+    background-color: white;
+    margin-bottom: calc(100px + 2em);
 }
+
 p {
     color: red;
     text-align: center;
 }
 h1 {
-    color: white;
+    color: #4e73df;
     text-align: center;
-    font-size: 600%;
+    font-size: 500%;
 }
 h2 {
-    color: lightseagreen;
+    color: #20c9a6;
     text-align: center;
-    font-size: 325%;
+    font-size: 310%;
 }
 h3 {
     color: red;
@@ -29,11 +31,11 @@ h3 {
 }
 
 h4 {
-    color: white
+    color: #20c9a6
 }
 
 h5 {
-    color: darkgray;
+    color:#20c9a6;
     text-align: center;
     margin-bottom: 15pt;
     margin-top: 0pt;
@@ -42,11 +44,14 @@ h5 {
 .standard_input {
     display: block;
     margin: auto;
+    font-size: 25pt;
 }
 
 .standard_button {
     display: block;
     margin: auto;
+    background-color: #20c9a6;
+    font-size: 25pt;
 }
 
 .standard_form {
@@ -78,12 +83,12 @@ label {
 
 .headerForm {
     text-align: center;
-
 }
 
 #headerDiv {
-    color: white;
+    color: #20c9a6;
     margin-bottom: 7pt;
+    font-size: 150%;
 }
 
 #new_task_div {
@@ -117,3 +122,34 @@ label {
     margin: auto;
     width: 35%;
   }
+.top_bar {
+    width: 100%;
+    height: 100px;
+    background-color: #4e73df;
+}
+.bottom_bar {
+    width: 100%;
+    height: 100px;
+    background-color: #4e73df;
+    position: fixed;
+    bottom: 0;
+}
+.event_title {
+    margin-bottom: 5%;
+    font-size: 380%;
+    color: #4e73df;
+    border-bottom: dotted #4e73df;
+}
+#events_div {
+    margin: 3% 10% 3% 10%;
+    height: 60vh;
+    border: solid #4e73df 2px;
+    overflow: scroll;
+}
+#event_div {
+    width: 500px;
+    height: 300px;
+}
+#event_div::placeholder {
+    text-align: start;
+}
