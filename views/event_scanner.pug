@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+    #loadingMessage &#x1F3A5; Unable to access video stream (please make sure you have a webcam enabled)
+    canvas#canvas(hidden='')
+    h5(id="scan_confirmation") c
+    #output(hidden='')
+      #outputMessage No QR code detected.
+      div(hidden='')
+        b Data:
+        span#outputData
+    h5(id="hidden_event_id" hidden) #{ eventId }
+
+    include js_helper.pug
+    include event_scanner_helper.pug
+
+    include footer.pug

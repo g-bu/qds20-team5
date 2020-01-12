@@ -93,3 +93,14 @@ FOREIGN KEY (userId) REFERENCES users(userId) ,
 FOREIGN KEY (eventId) REFERENCES events(eventId) ,
 FOREIGN KEY (subEventId) REFERENCES subEvents(subEventId)
 ) ENGINE = InnoDB;
+
+CREATE TABLE `6pDXtoGkRl`.`registration` ( 
+`eventId` INT NOT NULL ,
+`userId` INT NOT NULL ,
+`registrationDateTime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+PRIMARY KEY (eventId, userId) ,
+FOREIGN KEY (eventId) REFERENCES events(eventId) ,
+FOREIGN KEY (userId) REFERENCES users(userId)
+) ENGINE = InnoDB;
+
+CREATE TABLE `6pDXtoGkRl`.`registration` ( `entryId` INT NOT NULL AUTO_INCREMENT , `userId` INT NOT NULL , `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`entryId`)) ENGINE = InnoDB;

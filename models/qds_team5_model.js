@@ -130,6 +130,39 @@ function getStats(callback) {
     // });
 }
 
+function eventScan(data, id, callback) {
+    console.log('model hit for event scan: ' + data)
+    let event_visit = {
+        eventId: data,
+        userId: id
+    }
+    console.log(event_visit)
+    let sql_statement = 'INSERT INTO registration SET ?';
+    let sql_params = [event_visit];
+    statement = db.format(sql_statement, sql_params);
+    db.query(statement, function (err) {
+        if (err) console.log('error, probably already scanned');
+    });
+    callback();
+}
+
+function subEventScan(subEventId, eventId, id, callback) {
+    console.log('model hit for sub event scan: ' + subEventId)
+    let sub_event_visit = {
+        eventId: eventId,
+        subEventId: subEventId,
+        userId: id
+    }
+    console.log(sub_event_visit)
+    let sql_statement = 'INSERT INTO visit SET ?';
+    let sql_params = [sub_event_visit];
+    statement = db.format(sql_statement, sql_params);
+    db.query(statement, function (err) {
+        if (err) console.log('error, probably already scanned');
+    });
+    callback();
+}
+
 module.exports = {
     login_user: login,
     signup_user: signup,
@@ -139,5 +172,7 @@ module.exports = {
     delete_event: deleteOne,
     get_sub_events: getSubs,
     user_add_sub_event: addSub,
-    get_stats: getStats
+    get_stats: getStats,
+    event_scan: eventScan,
+    sub_event_scan: subEventScan
 }
