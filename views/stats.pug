@@ -2,12 +2,14 @@ extends layout
 
 block content
 
+    p #{average}
+    
+    //- form(method="GET" action='/stats/get_stats').login_form
+    //-     //- input(type="submit" value="get stats")
+    //-     p #{ average }
+    //-     p.hidden stuff
 
-    form(method="POST" action='/stats/get_stats').login_form
-        input(type="submit" value="get stats")
-        p.hidden stuff
-
-
+    
     include js_helper.pug
 
     include footer.pug

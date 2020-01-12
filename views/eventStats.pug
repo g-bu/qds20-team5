@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+    h1 QDS Team 5
+    
+    br
+
+    - let image = qr
+    img(src=image).qr_image
+
+    br
+    br
+
+    include js_helper.pug
+
+    include footer.pug

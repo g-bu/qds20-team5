@@ -121,13 +121,13 @@ function addSub(data, callback) {
 
 function getStats(callback) {
     console.log('model hit for stats')
-    // console.log(data);
-    // let sql_statement = 'SELECT * FROM stats';
-    // statement = db.format(sql_statement);
-    // db.query(statement, (err, result) => {
-    //     if (err) throw err;
-    //     else callback(result);
-    // });
+    // console.log(callback);
+    let sql_statement = 'SELECT * FROM visit';
+    statement = db.format(sql_statement);
+    db.query(statement, (err, result) => {
+        if (err) throw err;
+        else callback(result);
+    });
 }
 
 module.exports = {
