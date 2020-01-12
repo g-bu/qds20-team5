@@ -119,15 +119,42 @@ function addSub(data, callback) {
     callback();
 }
 
+function getRatingQuestions(eventId, subEventId, callback) {
+    console.log('model hit for stats')
+    console.log();
+    let sql_statement = 'SELECT * FROM subEvents where subEventId = ?';
+    statement = db.format(sql_statement);
+    let sql_params = [subEventId];
+    statement = db.format(sql_statement, sql_params)
+    db.query(statement, (err, result) => {
+        if (err) throw err;
+        else callback(result[0]);
+    });
+}
+
+function getRatings(eventId, subEventId, callback) {
+    console.log('model hit for stats')
+    console.log('sub event id: ' + subEventId);
+    let sql_statement = 'SELECT * FROM visit WHERE subEventId = ?';
+    let sql_params = [subEventId];
+    statement = db.format(sql_statement, sql_params)
+    db.query(statement, (err, result) => {
+        if (err) throw err;
+        else callback(result[0]);
+        // else console.log('results: ' + result[0])
+    });
+}
+
+
 function getStats(callback) {
     console.log('model hit for stats')
     // console.log(data);
-    // let sql_statement = 'SELECT * FROM stats';
-    // statement = db.format(sql_statement);
-    // db.query(statement, (err, result) => {
-    //     if (err) throw err;
-    //     else callback(result);
-    // });
+    let sql_statement = 'SELECT AVG(rating1) AS rating1 FROM visit';
+    statement = db.format(sql_statement);
+    db.query(statement, (err, result) => {
+        if (err) throw err;
+        else callback(result[0]);
+    });
 }
 
 function eventScan(data, id, callback) {
@@ -174,5 +201,7 @@ module.exports = {
     user_add_sub_event: addSub,
     get_stats: getStats,
     event_scan: eventScan,
-    sub_event_scan: subEventScan
+    sub_event_scan: subEventScan,
+    get_rating_questions: getRatingQuestions,
+    get_ratings: getRatings
 }

@@ -1,4 +1,5 @@
 const qr_controller = require('../controllers/qr_controller');
+const stast_controller = require('../controllers/stats_controller')
 const express = require('express');
 const router = express.Router();
 

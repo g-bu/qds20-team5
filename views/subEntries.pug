@@ -45,6 +45,11 @@ block content
                 input(type="text", value=eventId name="hidden_sub_event_input").hidden
                 input(type="submit" value="Open Sub Event Scanner").standard_button.btn-secondary
             br
+            form.standard_form(method="POST" action="/stats/get_sub_event_stats")
+                input(type="text", value=subEvent.subEventId name="hidden_event_input").hidden
+                input(type="text", value=eventId name="hidden_sub_event_input").hidden
+                input(type="submit" value="Get Stats").standard_button.btn-secondary
+            br
             button(onclick="delete_sub_event(this)").standard_button.btn-secondary Delete
             p.hidden #{ subEvent.eventId }
             
