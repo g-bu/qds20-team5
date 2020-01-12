@@ -4,21 +4,23 @@
 }
 
 body {
-    background-color: black
+    background-color: #f8f9fc;
+    height: auto;
 }
+
 p {
     color: red;
     text-align: center;
 }
 h1 {
-    color: white;
+    color: #4e73df;
     text-align: center;
-    font-size: 600%;
+    font-size: 500%;
 }
 h2 {
-    color: lightseagreen;
+    color: #20c9a6;
     text-align: center;
-    font-size: 325%;
+    font-size: 300%;
 }
 h3 {
     color: red;
@@ -29,11 +31,11 @@ h3 {
 }
 
 h4 {
-    color: white
+    color: #20c9a6
 }
 
 h5 {
-    color: darkgray;
+    color:#20c9a6;
     text-align: center;
     margin-bottom: 15pt;
     margin-top: 0pt;
@@ -47,6 +49,7 @@ h5 {
 .standard_button {
     display: block;
     margin: auto;
+    background-color: #20c9a6;
 }
 
 .standard_form {
@@ -78,11 +81,10 @@ label {
 
 .headerForm {
     text-align: center;
-
 }
 
 #headerDiv {
-    color: white;
+    color: #20c9a6;
     margin-bottom: 7pt;
 }
 
@@ -117,3 +119,29 @@ label {
     margin: auto;
     width: 35%;
   }
+.top_bar {
+    width: 100%;
+    height: 100px;
+    background-color: #4e73df;
+}
+.bottom_bar {
+    width: 100%;
+    height: 100px;
+    background-color: #4e73df;
+    position: fixed;
+    bottom: 0;
+}
+/* Events list under Admin */
+.event_title {
+    margin-bottom: 5%;
+    font-size: 380%;
+    color: #4e73df;
+    border-bottom: dotted #4e73df;
+}
+#events_div {
+    margin: 3% 10% 3% 10%;
+    width: 80%;
+    height: 1100px;
+    border: solid #4e73df 2px;
+    overflow: scroll;
+}
