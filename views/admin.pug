@@ -26,20 +26,24 @@ block content
             input.child(type='date' placeholder="yyyy-mm-dd" value="mm/dd//yyyy" name='new_event_end_date' required="").standard_input
             input.child(type='time' placeholder="00:00:AM" value='00:00' name="new_event_end_time" required="").standard_input
         br
+        input(type="textarea" placeholder="event description" name="new_event_description").standard_input
+        //- needs to be enbiggefied in css but avoiding conflict
+        br
         input(type="submit" value="Add Event").btn-secondary.standard_button
 
     br
 
-    //- div(id="events_div")
-    //- each event in eventList
-    //-     div(id=entry.entryId).task_div
-    //-         h2 #{ entry.entryName }
-    //-         h3 00:00:00:00
-    //-         h5 #{ entry.strippedDate }
-    //-         h3.hidden #{ entry.entryDate }
-    //-         button(onclick="delete_entry(this)").standard_button.btn-secondary Delete
-    //-         p.hidden #{ entry.entryId }
-
+    div(id="events_div")
+    each event in eventList
+        div(id=event.eventId).task_div
+            h2 #{ event.eventName }
+            form.standard_form(method="POST" action='/events/get_sub_events')
+                input(type="submit" value="See / Add Sub Event" name).standard_button.btn-secondary
+                input(type="text", value=event.eventId).hidden
+            br
+            button(onclick="delete_event(this)").standard_button.btn-secondary Delete
+            p.hidden #{ event.eventId }
+            
     include js_helper.pug
 
     include footer.pug
