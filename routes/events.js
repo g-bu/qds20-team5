@@ -20,5 +20,4 @@ router.post('/get_sub_events', function (req, res) {
     });
 })
 
-
 module.exports = router;

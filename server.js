@@ -10,9 +10,8 @@ const TWO_HOURS = 1000 * 60 * 60 * 2;
 const home = require('./routes/home');
 const users = require('./routes/users');
 const events = require('./routes/events');
-const qr = require('./routes/qr')
-
 const stats = require('./routes/stats');
+const qr = require('./routes/qr')
 
 app.use(cookieSession({
     name: 'session',
