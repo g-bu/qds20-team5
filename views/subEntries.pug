@@ -12,9 +12,9 @@ block content
     form#new_task_div.standard_form(method="POST" action='/events/user_add_sub_event')
         h2 Add a New Event
         br
-        input(type='text' placeholder="event name" name="new_event_name" required="").standard_input.new_task_input
+        input(type='text' placeholder="sub event name" name="new_event_name" required="").standard_input.new_task_input
         br
-        input(type='text' placeholder="event address" name="new_event_address" required="").standard_input.new_task_input
+        input(type='text' placeholder="sub event location" name="new_event_location" required="").standard_input.new_task_input
         br
         h5 Event Start Date and Time
         .parent
@@ -26,7 +26,7 @@ block content
             input.child(type='date' placeholder="yyyy-mm-dd" value="mm/dd//yyyy" name='new_event_end_date' required="").standard_input
             input.child(type='time' placeholder="00:00:AM" value='00:00' name="new_event_end_time" required="").standard_input
         br
-        input(type="textarea" placeholder="event description" name="new_event_description").standard_input
+        input(type="textarea" placeholder="sub event description" name="new_event_description").standard_input
         //- needs to be enbiggefied in css but avoiding conflict
         br
         input(type="submit" value="Add Event").btn-secondary.standard_button
