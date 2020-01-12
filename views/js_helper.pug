@@ -11,3 +11,33 @@ script.
     new_task_div.style.display = "none";
     }
     }
+
+script.
+    function delete_event(button) {
+    if(confirm('Are you sure you want to delete this event?  This will also delete all associated sub events.')) {
+    let event_name = button.parentNode.lastChild.innerText;   
+    console.log('eventId: ' + event_name + ' being deleted');   
+    fetch('/events/delete_event', {
+    method: "POST",
+    redirect: 'follow',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ "message": event_name })
+
+    })
+        .then(response => {
+        location.reload();
+    }) 
+    }
+    }
+
+script.
+    function get_sub_events(button) {
+    let event_name = button.parentNode.lastChild.innerText;     
+    console.log('eventId: ' + event_name + ' being looked up');   
+    fetch('/events/get_sub_events', {
+    method: "POST",
+    redirect: 'follow',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ "message": event_name })
+    })
+    }
