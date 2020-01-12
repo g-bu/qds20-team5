@@ -11,6 +11,7 @@ exports.login_user = (req, res) => {
         else {
             req.session.userEmail = model_response[0].userEmail;
             req.session.userRole = model_response[0].userRole;
+            req.session.userId = model_response[0].userId;
             console.log('session user role: ' + req.session.userRole)
             res.redirect('/');
         }
