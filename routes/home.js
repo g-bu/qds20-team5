@@ -21,7 +21,7 @@ router.get('/', function (req, res) {
             })
         } else {
             QRCode.toDataURL(req.session.userEmail, function (err, url) {
-                res.render('index', { 'emailData': req.session.userEmail, 'messageData': 'Welcome to QDS Team 5', 'qr': url });
+                res.render('index', { 'emailData': req.session.userEmail, 'messageData': 'Welcome to ConEx', 'qr': url });
             })
         }
     }
