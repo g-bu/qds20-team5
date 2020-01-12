@@ -4,16 +4,16 @@
 }
 
 body {
-    background-color: black
+    background-color: #f8f9fc;
 }
 p {
     color: red;
     text-align: center;
 }
 h1 {
-    color: white;
+    color: #4e73df;
     text-align: center;
-    font-size: 600%;
+    font-size: 500%;
 }
 h2 {
     color: lightseagreen;
@@ -117,3 +117,15 @@ label {
     margin: auto;
     width: 35%;
   }
+.top_bar {
+    width: 100%;
+    background-color: #4e73df;
+    position: fixed;
+    top: 0;
+}
+.botom_bar {
+    width: 100%;
+    background-color: #4e73df;
+    position: fixed;
+    bottom: 0;
+}
