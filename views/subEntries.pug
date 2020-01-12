@@ -31,35 +31,19 @@ block content
         br
         input(type="submit" value="Add Event").btn-secondary.standard_button
 
-    //- button(onclick="toggle_new_task()").btn-secondary.standard_button Add New Sub Event
-    //- form#new_task_div.standard_form(method="POST" action='/events/user_add_sub_event')
-    //-     h2 Add a New Sub Event
-    //-     br
-    //-     input(type='text' placeholder="sub event name" name="new_sub_event_name" required="").standard_input.new_task_input
-    //-     br
-    //-     input(type='text' placeholder="sub event address" name="new_sub_event_address" required="").standard_input.new_task_input
-    //-     br
-    //-     h5 Sub Event Start Date and Time
-    //-     .parent
-    //-         input.child(type='date' placeholder="yyyy-mm-dd" value="mm/dd//yyyy" name='new_sub_event_start_date' required="").standard_input
-    //-         input.child(type='time' placeholder="00:00:AM" value='00:00' name="new_sub_event_start_time" required="").standard_input
-    //-     br
-    //-     h5 Sub Event End Date and Time
-    //-     .parent
-    //-         input.child(type='date' placeholder="yyyy-mm-dd" value="mm/dd//yyyy" name='new_sub_event_end_date' required="").standard_input
-    //-         input.child(type='time' placeholder="00:00:AM" value='00:00' name="new_sub_event_end_time" required="").standard_input
-    //-     br
-    //-     input(type="textarea" placeholder="event description" name="new_sub_event_description").standard_input
-    //-     //- needs to be enbiggefied in css but avoiding conflict
-    //-     br
-    //-     input(type="submit" value="Add Sub Event").btn-secondary.standard_button
-
     br
+
+    h1(id='parent_event' hidden) #{eventId}
 
     div(id="events_div")
     each subEvent in subEventList
         div(id=subEvent.subEventId).task_div
             h2 #{ subEvent.subEventName }
+            br
+            form.standard_form(method="POST" action="/qr/sub_event_get_scanner")
+                input(type="text", value=subEvent.subEventId name="hidden_event_input").hidden
+                input(type="text", value=eventId name="hidden_sub_event_input").hidden
+                input(type="submit" value="Open Sub Event Scanner").standard_button.btn-secondary
             br
             button(onclick="delete_sub_event(this)").standard_button.btn-secondary Delete
             p.hidden #{ subEvent.eventId }

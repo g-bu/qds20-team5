@@ -22,7 +22,6 @@ script.
     redirect: 'follow',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ "message": event_name })
-
     })
         .then(response => {
         location.reload();
