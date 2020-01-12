@@ -2,7 +2,7 @@ extends layout
 
 block content
 
-    h1 QDS Team 5
+    h1 ConEx
     
     h2 Welcome, Administrator
 
@@ -26,7 +26,7 @@ block content
             input.child(type='date' placeholder="yyyy-mm-dd" value="mm/dd//yyyy" name='new_event_end_date' required="").standard_input
             input.child(type='time' placeholder="00:00:AM" value='00:00' name="new_event_end_time" required="").standard_input
         br
-        input(type="textarea" placeholder="event description" name="new_event_description").standard_input
+        input(id="event_div" type="textarea" placeholder="event description" name="new_event_description").standard_input
         //- needs to be enbiggefied in css but avoiding conflict
         br
         input(type="submit" value="Add Event").btn-secondary.standard_button
