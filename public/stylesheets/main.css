@@ -126,6 +126,7 @@ label {
 }
 .bottom_bar {
     width: 100%;
+    height: 100px;
     background-color: #4e73df;
     position: fixed;
     bottom: 0;
