@@ -13,7 +13,8 @@ router.post('/user_add_sub_event', function (req, res) {
 router.post('/delete_event', events_controller.delete_event);
 
 router.post('/get_sub_events', function (req, res) {
-    events_controller.get_sub_events( req.body.message, function(sub_event_data) {
+    console.log(req.body.hidden_event_input)
+    events_controller.get_sub_events( req.body.hidden_event_input, function(sub_event_data) {
         console.log(sub_event_data)
         res.render('subEntries', { 'emailData': req.session.userEmail, 'subEventList': sub_event_data, 'emailData': req.session.userEmail, 'messageData': 'Welcome to QDS Team 5' });
     });
