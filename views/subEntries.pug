@@ -36,17 +36,17 @@ block content
     h1(id='parent_event' hidden) #{eventId}
 
     div(id="events_div")
-    each subEvent in subEventList
-        div(id=subEvent.subEventId).task_div
-            h2 #{ subEvent.subEventName }
-            br
-            form.standard_form(method="POST" action="/qr/sub_event_get_scanner")
-                input(type="text", value=subEvent.subEventId name="hidden_event_input").hidden
-                input(type="text", value=eventId name="hidden_sub_event_input").hidden
-                input(type="submit" value="Open Sub Event Scanner").standard_button.btn-secondary
-            br
-            button(onclick="delete_sub_event(this)").standard_button.btn-secondary Delete
-            p.hidden #{ subEvent.eventId }
+        each subEvent in subEventList
+            div(id=subEvent.subEventId).task_div
+                h2 #{ subEvent.subEventName }
+                br
+                form.standard_form(method="POST" action="/qr/sub_event_get_scanner")
+                    input(type="text", value=subEvent.subEventId name="hidden_event_input").hidden
+                    input(type="text", value=eventId name="hidden_sub_event_input").hidden
+                    input(type="submit" value="Open Sub Event Scanner").standard_button.btn-secondary
+                br
+                button(onclick="delete_sub_event(this)").standard_button.btn-secondary Delete
+                p.hidden #{ subEvent.eventId }
             
     include js_helper.pug
 
