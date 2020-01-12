@@ -90,33 +90,33 @@ function deleteOne(data, callback) {
 }
 
 function getSubs(data, callback) {
-    // console.log(data);
-    // let sql_statement = 'SELECT * FROM subEvents';
-    // statement = db.format(sql_statement);
-    // db.query(statement, (err, result) => {
-    //     if (err) throw err;
-    //     else callback(result);
-    // });
+    console.log(data);
+    let sql_statement = 'SELECT * FROM subEvents';
+    statement = db.format(sql_statement);
+    db.query(statement, (err, result) => {
+        if (err) throw err;
+        else callback(result);
+    });
 }
 
 function addSub(data, callback) {
     console.log('user add sub event fired from db model')
-    // let event = {
-    //     eventId: null,
-    //     eventName: data.new_event_name,
-    //     eventAddress: data.new_event_address,
-    //     eventStartDateTime: data.new_event_start_date + " " + data.new_event_start_time,
-    //     eventEndDateTime: data.new_event_end_date + " " + data.new_event_end_time,
-    //     eventDescription: data.new_event_description
-    // };
-    // console.log(event)
-    // let sql_statement = 'INSERT INTO events SET ?';
-    // let sql_params = [event];
-    // statement = db.format(sql_statement, sql_params);
-    // db.query(statement, function (err) {
-    //     if (err) throw err;
-    // });
-    // callback();
+    let subEvent = {
+        subEventId: null,
+        subEventName: data.new_event_name,
+        subEventLocation: data.new_event_location,
+        subEventStartDateTime: data.new_event_start_date + " " + data.new_event_start_time,
+        subEventEndDateTime: data.new_event_end_date + " " + data.new_event_end_time,
+        subEventDescription: data.new_event_description
+    };
+    console.log(subEvent)
+    let sql_statement = 'INSERT INTO subEvents SET ?';
+    let sql_params = [subEvent];
+    statement = db.format(sql_statement, sql_params);
+    db.query(statement, function (err) {
+        if (err) throw err;
+    });
+    callback();
 }
 
 function getStats(callback) {
@@ -130,6 +130,39 @@ function getStats(callback) {
     // });
 }
 
+function eventScan(data, id, callback) {
+    console.log('model hit for event scan: ' + data)
+    let event_visit = {
+        eventId: data,
+        userId: id
+    }
+    console.log(event_visit)
+    let sql_statement = 'INSERT INTO registration SET ?';
+    let sql_params = [event_visit];
+    statement = db.format(sql_statement, sql_params);
+    db.query(statement, function (err) {
+        if (err) console.log('error, probably already scanned');
+    });
+    callback();
+}
+
+function subEventScan(subEventId, eventId, id, callback) {
+    console.log('model hit for sub event scan: ' + subEventId)
+    let sub_event_visit = {
+        eventId: eventId,
+        subEventId: subEventId,
+        userId: id
+    }
+    console.log(sub_event_visit)
+    let sql_statement = 'INSERT INTO visit SET ?';
+    let sql_params = [sub_event_visit];
+    statement = db.format(sql_statement, sql_params);
+    db.query(statement, function (err) {
+        if (err) console.log('error, probably already scanned');
+    });
+    callback();
+}
+
 module.exports = {
     login_user: login,
     signup_user: signup,
@@ -139,5 +172,7 @@ module.exports = {
     delete_event: deleteOne,
     get_sub_events: getSubs,
     user_add_sub_event: addSub,
-    get_stats: getStats
+    get_stats: getStats,
+    event_scan: eventScan,
+    sub_event_scan: subEventScan
 }

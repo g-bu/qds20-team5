@@ -10,6 +10,8 @@ const TWO_HOURS = 1000 * 60 * 60 * 2;
 const home = require('./routes/home');
 const users = require('./routes/users');
 const events = require('./routes/events');
+const qr = require('./routes/qr')
+
 const stats = require('./routes/stats');
 
 app.use(cookieSession({
@@ -28,6 +30,7 @@ app.use('/', home);
 app.use('/users', users);
 app.use('/events', events);
 app.use('/stats', stats);
+app.use('/qr', qr)
 
 // heroku requires port to be served to 8080
 var port = process.env.PORT || 8080;

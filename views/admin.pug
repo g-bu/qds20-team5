@@ -7,7 +7,7 @@ block content
     h2 Welcome, Administrator
 
     br
-
+    
     button(onclick="toggle_new_task()").btn-secondary.standard_button Add New Event
     form#new_task_div.standard_form(method="POST" action='/events/user_add_event')
         h2 Add a New Event
@@ -34,16 +34,20 @@ block content
     br
 
     div(id="events_div")
-        h2.event_title Events List
-        each event in eventList
-            div(id=event.eventId).task_div
-                h2 #{ event.eventName }
-                form.standard_form(method="POST" action='/events/get_sub_events')
-                    input(type="submit" value="See / Add Sub Event" name).standard_button.btn-secondary
-                    input(type="text", value=event.eventId).hidden
-                br
-                button(onclick="delete_event(this)").standard_button.btn-secondary Delete
-                p.hidden #{ event.eventId }
+      h2.event_title Events List
+      each event in eventList
+          div(id=event.eventId).task_div
+              h2 #{ event.eventName }
+              form.standard_form(method="POST" action="/qr/event_get_scanner")
+                  input(type="text", value=event.eventId name="hidden_event_input").hidden
+                  input(type="submit" value="Open Event Scanner").standard_button.btn-secondary
+              br
+              form.standard_form(method="POST" action='/events/get_sub_events')
+                  input(type="text", value=event.eventId name="hidden_event_input").hidden
+                  input(type="submit" value="See / Add Sub Event").standard_button.btn-secondary
+              br
+              button(onclick="delete_event(this)").standard_button.btn-secondary Delete
+              p.hidden #{ event.eventId }
             
     include js_helper.pug
 

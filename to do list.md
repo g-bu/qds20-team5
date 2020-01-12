@@ -4,6 +4,7 @@ break down addresses in forms and database to individual components to allow geo
 show main event on sub event page 
     (requires more complicated database call)
 enforce stop time after start time
+no mechanism to answer ratings or questions at this point
 
 
 
